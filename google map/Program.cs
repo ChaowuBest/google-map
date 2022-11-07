@@ -22,10 +22,9 @@ namespace google_map
             {
                 for (int j = 0; j < 20; j++)
                 {
-                    var exactpoision = i.Replace("[", "").Replace("]", "").Split("/");
-                    double[] postion = pg.postion(exactpoision[2]);
-                    string url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + postion[0] + ", " + postion[1] + "&key=AIzaSyDnaZ4UFEbNyvimjzuzSevVFb9qSmkyfh4";
-                    string readtoend = reqhelper.httpRequest(url, "", req, Encoding.UTF8, Encoding.UTF8, isusecookie: false, "arcteryxxjp.myshopify.com", "application/json", "POST", "Mobile/7381 CFNetwork/1335.0.3 Darwin/21.6.0", autoRedirect: false, abcRaffle: false, 9000);
+                    double[] postion = pg.postion(i);
+                    string url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + postion[0] + ", " + postion[1] + "&key=yourownkey&language=ja";
+                    string readtoend = reqhelper.httpRequest(url, "", req, Encoding.UTF8, Encoding.UTF8, isusecookie: false, "", "application/json", "POST", "Mobile/7381 CFNetwork/1335.0.3 Darwin/21.6.0", autoRedirect: false, abcRaffle: false, 9000);
                     if (readtoend.Contains("premise"))
                     {
                         Console.WriteLine("GEO Decode Address From Google Map API "+n+"");
